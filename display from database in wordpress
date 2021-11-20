@@ -1,0 +1,16 @@
+    global $wpdb;
+    // this adds the prefix which is set by the user upon instillation of wordpress
+    $table_name = $wpdb->prefix . "your_table_name";
+    // this will get the data from your table
+    $retrieve_data = $wpdb->get_results( "SELECT * FROM $table_name" );
+?>
+<ul>
+    foreach ($retrieve_data as $retrieved_data){ ?>
+        <li><?php echo $retrieved_data->column_name;?></li>
+        <li><?php echo $retrieved_data->another_column_name;?></li>
+        <li><?php echo $retrieved_data->as_many_columns_as_you_have;?></li>
+    <?php 
+        }
+    ?>
+</ul>
+<?php
